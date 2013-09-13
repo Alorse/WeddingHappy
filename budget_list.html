@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>App MOBILE - Social Paraiso</title>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="js/jquery.mobile/jquery.mobile-1.3.1.min.css" />
+        <link rel="stylesheet" type="text/css" href="js/jquery.mobile/jquery-ui-1.10.3.custom.css" />
+
+        <script type="text/javascript" src="js/jquery.mobile/jquery-1.7.2.min"></script>
+        <script type="text/javascript" src="js/jquery.mobile/jquery.mobile-1.3.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile/jquery-ui-1.10.3.custom.js"></script>
+
+        <!--<script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>-->
+        <script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/toast.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/spin/spin.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/spin/spin.min.js"></script>
+
+        <script type="text/javascript" charset="utf-8" src="js/phpjs/array_map.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/apis/storage.js"></script>
+
+        <script type="text/javascript" charset="utf-8" src="js/index.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/budget.js"></script>
+    </head>
+    <body id="budget" onload="$('#howm').slideFadeToggle();$('.how_much section').slideFadeToggle();">
+        <div class="wrap" data-role="page" id="list">
+            <div data-role="panel" id="right-panel" data-display="push" data-position="left" data-theme="c">
+                <br />
+                <div style="text-align: center">
+                    <a href="#" data-rel="close"><img src="img/logo_menu.png" /></a>
+                </div>
+                <div class="menubottom">
+                    <ul>
+                        <li data-rel="close">PRESUPUESTO</li>
+                        <li onclick="budget.filter_budgets('c');" data-rel="close">Conceptos pagos</li>
+                        <li onclick="budget.filter_budgets('p');" data-rel="close">Conceptos pendientes</li>
+                        <li onclick="budget.filter_budgets('m');" data-rel="close">Mis conceptos</li>
+                        <li onclick="" data-rel="close">Compartir presupuesto</li>
+                    </ul>
+                    <ul>
+                        <li onclick="go_('user_profile.html', 0);">Mi cuenta</li>
+                        <li>Acerca de Wedding Happy</li>
+                        <li>Comparte Wedding Happy</li>
+                        <li onclick="index.session_kill();">Salir</li>
+                    </ul>
+                </div>
+            </div>
+            <header>
+                <div class="headfix">
+                    <a href="#right-panel"><div class="iconsp"></div></a>
+                    <a href="#right-panel"><div class="iconmn"></div></a>
+                    <p>Presupuesto</p>
+                    <div class="icon back" onclick="go_('index.html#landing', 0);"></div>
+                    <div class="icon search" id="csea" onclick="$('.content_search').slideFadeToggle();"></div>
+                </div>
+            </header>
+            <div class="content">
+                <div class="cl">
+                    <div class="content_search">
+                        <form id="search" action="javascript:void(0);">
+                            <input type="text" placeholder="Escribe aquí" data-role="none" id="isearch" />
+                            <div id="btn_search"></div>
+                        </form>
+                    </div>
+                    <div class="how_much">
+                        <input type="text" placeholder="¿Cuál es tu presupuesto?" data-role="none" id="howm" onblur="$('#howm').slideFadeToggle();$('.how_much section').slideFadeToggle();" />
+                        <section onclick="budget.edit_money();">
+                            <div id="cost"></div>
+                            <div id="edit"></div>
+                            <div id="pro">$0.000.000</div>
+                            <div id="semaforo"></div>
+                        </section>
+                    </div>
+                    <!--<textarea id="results_text"></textarea>-->
+                    <select data-role="none" class="sel_cat" id="categorys">
+                        <option value="12">Recepción</option>
+                        <option value="10">Comida</option>
+                        <option value="9">Cat 3</option>
+                        <option value="8">Cat 4</option>
+                        <option value="7">Cat 5</option>
+                    </select>
+                    <span class="arrowbottom"></span>
+                    <div class="list_budget"></div>
+
+                    <br />
+                    <input type="button" value="Agregar un nuevo concepto" data-role="none" id="add_budget" />
+                </div>
+                <footer>
+                    <span class="arromenutop"></span>
+                    <div class="menu">
+                        <span><a onclick="go_('check_list.html', 0);"><img src="img/menu_botton/ico_ckecklist.png" /></a></span>
+                        <span><a onclick=""><img src="img/menu_botton/ico_presupuesto.png" /></a></span>
+                        <span><a onclick="go_('suppliers.html', 0);"><img src="img/menu_botton/ico_proveedores.png" /></a></span>
+                        <span><a onclick="go_('pinpost.html', 0);"><img src="img/menu_botton/ico_inspiracion.png" /></a></span>
+                        <span><a onclick="go_('favorites.html', 0);"><img src="img/menu_botton/ico_favoritos.png" /></a></span>
+                        <span><a onclick="go_('faqs.html', 0);"><img src="img/menu_botton/ico_faqs.png" /></a></span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <div class="wrap" data-role="page" id="comment">
+            <div class="headfix">
+                <div class="iconsp" onclick=""></div>
+                <p>Comentario</p>
+                <div class="icon back" onclick="go_('#list', true);"></div>
+            </div>
+            <div class="content">
+                <div class="cl">
+                    <form action="javascript:void(0);" method="POST" onsubmit="budget.save_comment();">
+                        <textarea id="txt_comment" data-role="none"></textarea>
+                        <input type="submit" value="Guardar" data-role="none" />
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap" data-role="page" id="new">
+            <div class="headfix">
+                <div class="iconsp" onclick=""></div>
+                <p>Nuevo concepto</p>
+                <div class="icon back" onclick="go_('#list', true);"></div>
+            </div>
+            <div class="content">
+                <div class="cl">
+                    <form action="javascript:void(0);" method="POST" onsubmit="budget.action_budget();">
+                        <label>Nombre del concepto</label>
+                        <input type="text" name="name_budget" id="name_budget" style="width: 91%;" data-role="none" />
+                        <label>Valor</label>
+                        <input type="number" name="cost_budget" id="cost_budget" style="width: 91%;" data-role="none" />
+                        <label>Categoría</label>
+                        <select data-role="none" class="sel_cat" id="category">
+                            <option value="0" disabled selected>Selecciona una categoría</option>
+                            <option value="12">Recepción</option>
+                            <option value="10">Comida</option>
+                            <option value="9">Cat 3</option>
+                            <option value="8">Cat 4</option>
+                            <option value="7">Cat 5</option>
+                        </select>
+                        <span class="arrowbottom"></span>
+                        <br />
+                        <br />
+                        <div class="check" onclick="budget.change_del();">
+                            <input type="checkbox" data-role="none" id="del_event" /> 
+                            <label id="txt_del">Eliminar Concepto</label>
+                        </div>
+                        <input type="submit" value="Guardar" data-role="none" id="btn_save" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

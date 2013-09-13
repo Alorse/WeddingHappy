@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>App MOBILE - Social Paraiso</title>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="js/jquery.mobile/jquery.mobile-1.3.1.min.css" />
+        <link rel="stylesheet" type="text/css" href="js/jquery.mobile/jquery-ui-1.10.3.custom.css" />
+
+        <script type="text/javascript" src="js/jquery.mobile/jquery-1.7.2.min"></script>
+        <script type="text/javascript" src="js/jquery.mobile/jquery.mobile-1.3.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile/jquery-ui-1.10.3.custom.js"></script>
+
+        <!--<script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>-->
+        <script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/toast.js"></script>
+
+        <script type="text/javascript" charset="utf-8" src="js/phpjs/array_map.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/apis/storage.js"></script>
+
+        <script type="text/javascript" charset="utf-8" src="js/index.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/suppliers.js"></script>
+    </head>
+    <body id="suppliers">
+        <div class="wrap" data-role="page" id="list">
+            <div data-role="panel" id="right-panel" data-display="push" data-position="left" data-theme="c">
+                <br />
+                <div style="text-align: center">
+                    <a href="#" data-rel="close"><img src="img/logo_menu.png" /></a>
+                </div>
+                <div class="menubottom">
+                    <ul>
+                        <li data-rel="close">PROVEEDORES</li>
+                        <li onclick="go_('user_profile.html', 0);">Mi cuenta</li>
+                        <li>Acerca de Wedding Happy</li>
+                        <li>Comparte Wedding Happy</li>
+                        <li onclick="index.session_kill();">Salir</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="headfix">
+                <a href="#right-panel"><div class="iconsp"></div></a>
+                <a href="#right-panel"><div class="iconmn"></div></a>
+                <p>Proveedores</p>
+                <div class="icon back" onclick="go_('index.html#landing', 0);"></div>
+
+            </div>
+            <div class="content">
+                <p>
+                    <select data-role="none" class="sel_cat" id="city">
+                        <option value="0" selected>Todas las ciudades</option>
+                        <!--<option value="Arauca">Arauca</option>
+                        <option value="Armenia">Armenia</option>
+                        <option value="Bogotá">Bogotá</option>
+                        <option value="Cali">Cali</option>
+                        <option value="Cucuta">Cúcuta</option>
+                        <option value="Manizales">Manizales</option>
+                        <option value="Medellín">Medellín</option>
+                        <option value="Pasto">Pasto</option>
+                        <option value="Pereira">Pereira</option>-->
+                    </select>
+                </p>
+                <p>
+                    <select data-role="none" class="sel_cat" id="category">
+                        <option value="0" selected>Todas las categorías</option>
+                        <!--<option value="Restaurantes">Restaurantes</option>
+                        <option value="Trajes">Trajes</option>
+                        <option value="Comidas">Comidas</option>
+                        <option value="Recepción">Recepción</option>
+                        <option value="Iglesias">Iglesias</option>
+                        <option value="Coches">Coches</option>
+                        <option value="Hogar">Cositas lindas para la casa</option>
+                        <option value="Wedding_planners">Wedding planners</option>
+                        <option value="Postres">Postres</option>-->
+                    </select>
+                </p>
+
+                <div id="loadmoreajaxloader" style="text-align: center;"><img src="js/jquery.mobile/images/ajax-loader.gif" /></div>
+                <div id="lst_suppliers">
+                </div>
+                <span class="arromenutop"></span>
+                <div class="menu">
+                    <span><a onclick="go_('check_list.html', 0);"><img src="img/menu_botton/ico_ckecklist.png" /></a></span>
+                    <span><a onclick="go_('budget_list.html', 0);"><img src="img/menu_botton/ico_presupuesto.png" /></a></span>
+                    <span><a onclick=""><img src="img/menu_botton/ico_proveedores.png" /></a></span>
+                    <span><a onclick="go_('pinpost.html', 0);"><img src="img/menu_botton/ico_inspiracion.png" /></a></span>
+                    <span><a onclick="go_('favorites.html', 0);"><img src="img/menu_botton/ico_favoritos.png" /></a></span>
+                    <span><a onclick="go_('faqs.html', 0);"><img src="img/menu_botton/ico_faqs.png" /></a></span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
